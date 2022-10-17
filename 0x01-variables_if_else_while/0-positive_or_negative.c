@@ -1,6 +1,9 @@
 #include <stdlib.h>
 #include <time.h>
 #include <stdio.h>
+/*Print a random number 
+* decide whether it is postive or negative or zero
+*/
 int main(void)
 {
 int n;
