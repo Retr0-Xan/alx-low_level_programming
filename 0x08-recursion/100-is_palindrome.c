@@ -1,9 +1,8 @@
 /*
- * File: 7-is_palindrome.c
- * Auth: Brennan D Baraban
+ * File: 100-is_palindrome.c
  */
 
-#include "holberton.h"
+#include "main.h"
 
 int find_strlen(char *s);
 int check_palindrome(char *s, int len, int index);
