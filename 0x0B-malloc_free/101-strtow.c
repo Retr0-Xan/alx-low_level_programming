@@ -1,9 +1,8 @@
 /*
- * File: 100-strtow.c
- * Auth: Brennan D Baraban
+ * File: 101-strtow.c
  */
 
-#include "holberton.h"
+#include "main.h"
 #include <stdlib.h>
 
 int word_len(char *str);
