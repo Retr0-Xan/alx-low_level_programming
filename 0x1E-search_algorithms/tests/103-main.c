@@ -1,21 +1,21 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "../sort.h"
+#include "../search_algos.h"
 
 /**
  * main - Entry point
  *
- * Return: Always 0
+ * Return: Always EXIT_SUCCESS
  */
 int main(void)
 {
-	int array[] = {19, 48, 99, 71, 13, 52, 96, 73, 86, 7};
-	size_t n = sizeof(array) / sizeof(array[0]);
+    int array[] = {
+        0, 1, 2, 3, 4, 7, 12, 15, 18, 19, 23, 54, 61, 62, 76, 99
+    };
+    size_t size = sizeof(array) / sizeof(array[0]);
 
-	print_array(array, n);
-	printf("\n");
-	merge_sort(array, n);
-	printf("\n");
-	print_array(array, n);
-	return (0);
+    printf("Found %d at index: %d\n\n", 62, exponential_search(array, size, 62));
+    printf("Found %d at index: %d\n\n", 3, exponential_search(array, size, 3));
+    printf("Found %d at index: %d\n", 999, exponential_search(array, size, 999));
+    return (EXIT_SUCCESS);
 }

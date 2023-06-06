@@ -1,21 +1,34 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "../sort.h"
+#include "../search_algos.h"
+
+skiplist_t *create_skiplist(int *array, size_t size);
+void print_skiplist(const skiplist_t *list);
+void free_skiplist(skiplist_t *list);
 
 /**
  * main - Entry point
  *
- * Return: Always 0
+ * Return: Always EXIT_SUCCESS
  */
 int main(void)
 {
-	int array[] = {100, 93, 40, 57, 14, 58, 85, 54, 31, 56, 46, 39, 15, 26, 78, 13};
-	size_t n = sizeof(array) / sizeof(array[0]);
+    skiplist_t *list, *res;
+    int array[] = {
+        0, 1, 2, 3, 4, 7, 12, 15, 18, 19, 23, 53, 61, 62, 76, 99
+    };
+    size_t size = sizeof(array) / sizeof(array[0]);
 
-	print_array(array, n);
-	printf("\n");
-	bitonic_sort(array, n);
-	printf("\n");
-	print_array(array, n);
-	return (0);
+    list = create_skiplist(array, size);
+    print_skiplist(list);
+
+    res =  linear_skip(list, 53);
+    printf("Found %d at index: %lu\n\n", 53, res->index);
+    res =  linear_skip(list, 2);
+    printf("Found %d at index: %lu\n\n", 2, res->index);
+    res =  linear_skip(list, 999);
+    printf("Found %d at index: %p\n", 999, (void *) res);
+
+    free_skiplist(list);
+    return (EXIT_SUCCESS);
 }
